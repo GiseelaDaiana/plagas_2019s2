@@ -1,0 +1,46 @@
+import elementos.*
+import plagas.*
+
+test "plaga" {
+	
+	const cucarachas1 = new Cucarachas()
+	cucarachas1.poblacion(15)
+	cucarachas1.pesoPromedioDeBichos(10)
+	
+	const pulgas1 = new Pulgas()
+	pulgas1.poblacion(20)
+	
+	const mosquitos1 = new Mosquitos()
+	mosquitos1.poblacion(30)
+	
+	const garrapatas1 = new Garrapatas()
+	garrapatas1.poblacion(25)
+	
+	assert.that(garrapatas1.trasmiteEnfermedades())
+	assert.that(cucarachas1.trasmiteEnfermedades())
+	assert.that(mosquitos1.trasmiteEnfermedades())
+	assert.that(pulgas1.trasmiteEnfermedades())
+	
+	assert.equals(50, garrapatas1.nivelDeDano())
+    assert.equals(7.5, cucarachas1.nivelDeDano())
+    assert.equals(30, mosquitos1.nivelDeDano())
+    assert.equals(40, pulgas1.nivelDeDano())
+    
+    /*efecto de ataque */
+    garrapatas1.efectoDeAtaque()
+	mosquitos1.efectoDeAtaque()
+	pulgas1.efectoDeAtaque()
+	cucarachas1.efectoDeAtaque()
+	
+	/*General sobre poblacion */
+	assert.equals(30, garrapatas1.poblacion())
+    assert.equals(16.5, cucarachas1.poblacion())
+    assert.equals(33, mosquitos1.poblacion())
+    assert.equals(22, pulgas1.poblacion())
+    
+    
+    assert.equals(12, cucarachas1.pesoPromedioDeBichos())
+   
+	
+	
+}

@@ -1,0 +1,39 @@
+import elementos.*
+import plagas.*
+
+test "testX" {
+    const hogar1 = new Hogar()
+    hogar1.nivelDeMugre(10)
+    hogar1.confort(30)
+    const huerta1 =new Huerta()
+    huerta1.capacidadDeProduccionXMes(30)
+    huerta1.nivel(10)
+    const mascota1 = new Mascota()
+    mascota1.nivelDeSalud(300)
+    const barrio1 = new Barrios()
+    barrio1.agregarElemento(hogar1)
+    barrio1.agregarElemento(mascota1)
+    barrio1.agregarElemento(huerta1)
+    
+    
+    
+    
+    /*esBueno() */
+	assert.that(hogar1.esBueno())
+	assert.that(mascota1.esBueno())
+	assert.that(huerta1.esBueno())
+	
+	assert.that(barrio1.barrioCopado())
+	
+	/*ataque de plaga*/
+	const cucarachas2 = new Cucarachas()
+	cucarachas2.poblacion(250)
+	cucarachas2.pesoPromedioDeBichos(10)
+	/*nivel de daño  125*/
+	
+	barrio1.atacarBarrio(cucarachas2)
+	
+	assert.equals(135, hogar1.nivelDeMugre())
+	assert.equals(175,mascota1.nivelDeSalud())
+	assert.equals(7.5, huerta1.capacidadDeProduccionXMes()) 
+}
